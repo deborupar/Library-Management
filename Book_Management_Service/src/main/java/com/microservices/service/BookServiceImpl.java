@@ -23,7 +23,7 @@ public class BookServiceImpl implements BookService {
 				
 	}
 	@Override
-	public Books getBookById(int id) {
+	public Books getBookById(long id) {
 		Optional<Books> result = booksRepo.findById(id);
 		Books book = null;
 		if(result.isPresent())
@@ -72,7 +72,7 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	@Transactional
-	public String deleteById(int id) {
+	public String deleteById(long id) {
 		try {
 			booksRepo.deleteById(id);
 			return "Deletd record with id "+id;
@@ -94,7 +94,7 @@ public class BookServiceImpl implements BookService {
 		}
 	}
 	@Override
-	public String updateBookTitle(int id, String title) {
+	public String updateBookTitle(long id, String title) {
 		try {
 		Optional<Books> result = booksRepo.findById(id);
 		if(result.isPresent()) {
@@ -113,7 +113,7 @@ public class BookServiceImpl implements BookService {
 		
 	}
 	@Override
-	public String updateBookAuthor(int id, String author) {
+	public String updateBookAuthor(long id, String author) {
 		try {
 			Optional<Books> result = booksRepo.findById(id);
 			if(result.isPresent()) {
@@ -131,7 +131,7 @@ public class BookServiceImpl implements BookService {
 			}
 	}
 	@Override
-	public String updateBookISBN(int id, String isbn) {
+	public String updateBookISBN(long id, String isbn) {
 		try {
 			Optional<Books> result = booksRepo.findById(id);
 			if(result.isPresent()) {
@@ -149,7 +149,7 @@ public class BookServiceImpl implements BookService {
 			}
 	}
 	@Override
-	public String updateBookSummary(int id, String summary) {
+	public String updateBookSummary(long id, String summary) {
 		try {
 			Optional<Books> result = booksRepo.findById(id);
 			if(result.isPresent()) {

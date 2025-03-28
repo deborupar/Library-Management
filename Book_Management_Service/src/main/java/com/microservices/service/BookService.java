@@ -6,7 +6,7 @@ import com.microservices.entity.Books;
 
 public interface BookService {
 	
-	Books getBookById(int id);
+	Books getBookById(long id);
 	
 	List<Books> getAllBooks();
 	
@@ -20,15 +20,15 @@ public interface BookService {
 	
 	String createNewBookEntry(Books book);
 	
-	String updateBookTitle(int id , String title);
+	String updateBookTitle(long id , String title);
 	
-	String updateBookAuthor(int id , String author);
+	String updateBookAuthor(long id , String author);
 	
-	String updateBookISBN(int id , String isbn);
+	String updateBookISBN(long id , String isbn);
 	
-	String updateBookSummary(int id , String summary);
+	String updateBookSummary(long id , String summary);
 	
-	String deleteById(int id);
+	String deleteById(long id);
 	
 	String deleteByISBN(String isbn);
 	

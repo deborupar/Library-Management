@@ -18,18 +18,18 @@ import com.microservices.service.BookService;
 
 @RestController
 @RequestMapping("/bms")
-public class BookManagementServiceController {
+public class BookManagementRestController {
 	
 	BookService bookService;
 	
 	@Autowired
-	BookManagementServiceController(BookService bookService){
+	BookManagementRestController(BookService bookService){
 		this.bookService = bookService;
 	}
 	
 	
 	@GetMapping("/books/{id}")
-	public Books getBookById(@PathVariable int id) {
+	public Books getBookById(@PathVariable long id) {
 		return bookService.getBookById(id);
 	}
 	
@@ -70,23 +70,23 @@ public class BookManagementServiceController {
 	
 	@PostMapping("/books/update/title")
 	public String updateBookTitle(@RequestBody Map<String, String> request) {
-		return bookService.updateBookTitle(Integer.parseInt(request.get("id")) , request.get("title"));
+		return bookService.updateBookTitle(Long.parseLong(request.get("id")) , request.get("title"));
 	}
 	@PostMapping("/books/update/author")
 	public String updateBookAuthor(@RequestBody Map<String, String> request) {
-		return bookService.updateBookAuthor(Integer.parseInt(request.get("id")) , request.get("author"));
+		return bookService.updateBookAuthor(Long.parseLong(request.get("id")) , request.get("author"));
 	}
 	@PostMapping("/books/update/isbn")
 	public String updateBookISBN(@RequestBody Map<String, String> request) {
-		return bookService.updateBookISBN(Integer.parseInt(request.get("id")) , request.get("isbn"));
+		return bookService.updateBookISBN(Long.parseLong(request.get("id")) , request.get("isbn"));
 	}
 	@PostMapping("/books/update/summary")
 	public String updateBookSummary(@RequestBody Map<String, String> request) {
-		return bookService.updateBookSummary(Integer.parseInt(request.get("id")) , request.get("summary"));
+		return bookService.updateBookSummary(Long.parseLong(request.get("id")) , request.get("summary"));
 	}
 	
 	@DeleteMapping("/books/{id}")
-	public String deleteById(@PathVariable int id) {
+	public String deleteById(@PathVariable long id) {
 		return bookService.deleteById(id);
 	}
 	

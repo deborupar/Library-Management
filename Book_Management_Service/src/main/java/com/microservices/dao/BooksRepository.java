@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.microservices.entity.Books;
 
 @Repository
-public interface BooksRepository extends JpaRepository<Books, Integer> {
+public interface BooksRepository extends JpaRepository<Books, Long> {
 	
     
 	@Query("SELECT b FROM Books b WHERE b.ISBN = :isbn")
